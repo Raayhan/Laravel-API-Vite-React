@@ -21,16 +21,17 @@ export default function Signup() {
         }
 
         axiosClient.post('/signup', payload).then(({ data }) => {
-            setUser(data.user)
-            setToken(data.token)
+            setUser(data.user);
+            setToken(data.token);
 
         })
-            .catch(err => {
-                const response = err.response;
-                if (response && response.status == 422) {
-                    console.log(response.data.errors);
-                }
-            })
+        .catch(err =>{
+            console.log(err);
+            const response = err.response;
+            if(response && response.status == 422){
+                console.log(response.data.errors);
+            }
+        })
 
     }
 

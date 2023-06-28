@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import axiosClient from "../axios.client";
 import { Link } from "react-router-dom";
-
+import myImage from '/loading-gif.gif';
 
 export default function Users() {
 
@@ -55,7 +55,7 @@ export default function Users() {
                     </thead>
                     {loading && <tbody>
                         <tr>
-                            <td colSpan={5} className="text-center">  Loading . . .</td>
+                            <td colSpan={5} className="text-center">  <img src={myImage} srcSet={`${myImage}`} alt="My Image" /></td>
 
                         </tr>
                     </tbody>

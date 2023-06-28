@@ -6,6 +6,7 @@ import Login from "./views/Login.jsx";
 import NotFound from "./views/NotFound.jsx";
 import Signup from "./views/Signup";
 import Users from "./views/Users";
+import UserForm from "./views/UserForm.jsx";
 import Dashboard from "./views/Dashboard.jsx";
 import { Navigate } from "react-router-dom";
 
@@ -27,6 +28,14 @@ const router = createBrowserRouter([
             {
                 path: '/users',
                 element: <Users />
+            },
+            {
+                path: '/users/new',
+                element: <UserForm key="userCreate"/>
+            },
+            {
+                path: '/users/:id',
+                element: <UserForm key="userUpdate"/>
             }
         ]
     },

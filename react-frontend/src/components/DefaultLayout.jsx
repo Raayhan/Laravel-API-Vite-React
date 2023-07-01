@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import axiosClient from "../axios.client";
 
 export default function DefaultLayout() {
-    const { user, token, setUser, setToken } = useStateContext();
+    const { user, token, notification, setUser, setToken } = useStateContext();
 
     if (!token) {
         return <Navigate to="/login" />
@@ -15,11 +15,11 @@ export default function DefaultLayout() {
         ev.preventDefault();
 
         axiosClient.post('/logout')
-        .then(()=>{
+            .then(() => {
 
-            setUser({})
-            setToken(null)
-        })
+                setUser({})
+                setToken(null)
+            })
     }
 
     useEffect(() => {
@@ -51,6 +51,11 @@ export default function DefaultLayout() {
                 </main>
 
             </div>
+            {notification &&
+                <div className="notification">
+                    { notification }
+                </div>
+            }
         </div>
 
 

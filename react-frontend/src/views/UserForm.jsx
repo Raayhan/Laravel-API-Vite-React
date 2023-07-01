@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import axiosClient from '../axios.client'
 import myImage from '/loading-gif.gif';
+import { useStateContext } from '../components/contexts/ContextProvider';
 
 
 
@@ -12,6 +13,7 @@ export default function UserForm() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false)
     const [errors, setErrors] = useState(null);
+    const {setNotification} = useStateContext();
     const onSubmit = (ev) => {
 
         ev.preventDefault();
@@ -19,7 +21,7 @@ export default function UserForm() {
 
             axiosClient.put(`/users/${user.id}`, user)
                 .then(() => {
-
+                    setNotification('User has been sucessfully updated')
                     navigate('/users')
 
                 })
@@ -31,10 +33,10 @@ export default function UserForm() {
                     }
                 })
         }
-        else{
+        else {
             axiosClient.post(`/users`, user)
                 .then(() => {
-
+                    setNotification('User has been sucessfully created')
                     navigate('/users')
 
                 })

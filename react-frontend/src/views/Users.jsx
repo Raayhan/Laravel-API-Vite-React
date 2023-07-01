@@ -55,7 +55,7 @@ export default function Users() {
                     </thead>
                     {loading && <tbody>
                         <tr>
-                            <td colSpan={5} className="text-center">  <img src={myImage} srcSet={`${myImage}`} alt="My Image" /></td>
+                            <td colSpan={5} className="text-center">  <img style={{ width: "5%", height: "5%" }}  src={myImage} srcSet={`${myImage}`} alt="My Image" /></td>
 
                         </tr>
                     </tbody>

@@ -19,7 +19,7 @@ export default function UserForm() {
     if (id) {
         useEffect(() => {
             setLoading(true)
-            axiosClient.get(`/user/${id}`)
+            axiosClient.get(`/users/${id}`)
                 .then(({ data }) => {
                     setLoading(false)
                     setUser(data)
